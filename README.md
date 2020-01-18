@@ -29,7 +29,7 @@ Things you may want to cover:
 |email|string|null: false|
 |password|string|null: false|
 |name|string|null: false|
-- has_many :groups, through: :groups_users
+- has_many :groups_users, through: :groups_users
 - has_many :messages
 
 ## groupsテーブル
@@ -37,7 +37,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many  :users, groups_users:  through: :groups_users
+- has_many  :groups_users, through: :groups_users
 - has_many :messages
 
 ## groups_usersテーブル
