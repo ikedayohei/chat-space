@@ -1,0 +1,20 @@
+.side
+  .side__header
+    .side__header__box
+      .side__header__box__user-name
+        %p masa
+      %ul.side__header__box__menu
+        %li.side__header__box__menu__new-group
+          =link_to "#" do
+            =icon('fas','edit')
+        %li.side__header__box__menu__edit-user
+          =link_to "#" do
+            =icon('fas','cog')
+  
+  .groups
+    =link_to "#" ,class: "group" do
+      %p.group__group-name
+        techamp
+    =link_to "#",class: "latest" do
+      %p.group__latest-message
+        まだメッセージはありません
