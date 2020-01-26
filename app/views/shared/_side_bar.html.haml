@@ -14,9 +14,8 @@
   .groups
     - current_user.groups.each do |group|
       .group
-        =link_to "#" ,class: "group" do
-          .group__group-name
+        =link_to group_messages_path(group) do
+          .group__name
             = group.name
-        =link_to "#",class: "latest" do
-          %p.group__latest-message
-            まだメッセージはありません
+          .group__message
+            = group.show_last_message

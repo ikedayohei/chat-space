@@ -1,33 +1,26 @@
 .chat-main
   .chat-main__header
     .chat-main__header__edit-btn
-      = link_to "#", class:"edit" do
-        %p Edit
+      = link_to "Edit", "edit"
+  
     .chat-main__header__left-box
       .chat-main__header__left-box__current-group
-        %p test
+        %h3= @group.name
+
       %ul.chat-main__header__left-box__member-list
-        Member：
+        Member:
         %li.chat-main__header__left-box__member-list__member
-          池田
-
-  .chat-main__message-list
-    .chat-main__message-list__message
-      %ul.chat-main__message-list__message__upper-info
-        %li.chat-main__message-list__message__upper-info__talker
-          池田陽平
-        %li.chat-main__message-list__message__upper-info__date
-          2020/01/19(sun) 17:59:22
-      .chat-main__message-list__message__text
-        %p こんにちは
-      .chat-main__message-list__message__text
-        %p こんにちは
-
+          - @group.users.each do |user|
+            = user.name
+          
+  .messages
+    = render @messages
+  
   .chat-main__form
-    %form.new__message
-      .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "input-box__image__file"} 
-      %input{type: "submit" , name: "commit" , value: "Send", class: "submit-btn"}
+    = form_for [@group,@message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: "type a message"
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
