@@ -1,4 +1,4 @@
-.message-box
+.message-box{data: {message: {id: message.id}}}
   .upper-message
     .upper-mesaage__user-name
       = message.user.name
@@ -8,6 +8,4 @@
     - if message.content.present?
       %p.lower-message__content
         = message.content
-        .message{data: {message: {id: message.id}}}
-
     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
