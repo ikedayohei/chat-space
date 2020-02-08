@@ -14,7 +14,7 @@ $(function(){
             <p class="lower-message__content">
             ${message.content}
             </p>
-            <img src="message.image" class="lower-message__image" >
+            <img src= ${message.image} class="lower-message__image" >
           </div>
          </div>`
       } else if ( message.content) {
@@ -26,7 +26,6 @@ $(function(){
            <div class="upper-message__date">
              ${message.created_at}
            </div>
-           </div>
            <div class="lower-message>
            <p class= "lower-message__content">
              ${message.content}
@@ -34,8 +33,7 @@ $(function(){
           </div>
          </div>`
       } else if (message.image) {
-        var html =
-         `<div class="message-box" data-message-id= ${message.id} >
+        var html =`<div class="message-box" data-message-id= ${message.id} >
            <div class="upper-message">
              <div class="upper-message__user-name">
                ${message.user_name}
@@ -43,9 +41,9 @@ $(function(){
              <div class="upper-message__date">
                ${message.created_at}
              </div>
-           </div>
-          <div class="lower-message>
-            <img src=" message.image  " class="lower-message__image" >
+            </div>
+          <div class="lower-message">
+           <img src= ${message.image} class="lower-message__image" >
           </div> 
         </div>`
       };
